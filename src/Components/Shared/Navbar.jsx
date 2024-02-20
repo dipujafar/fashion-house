@@ -1,8 +1,21 @@
 import { Link, NavLink } from "react-router-dom";
 import logoImg from "../../assets/logo/Fashion-House-logo.png";
 import Container from "./Container";
+import useAuth from "../../Hook/useAuth";
+import { toast } from "react-toastify";
+import { useState } from "react";
 
 const Navbar = () => {
+  const { user,  logOut} = useAuth();
+  const [show, setShow] = useState(false);
+
+  const handleLogout = () =>{
+    logOut()
+    .then(()=>{
+        toast("User Successfully Logged Out")
+    })
+  }
+
   const navLinks = (
     <>
       <li>
@@ -67,7 +80,7 @@ const Navbar = () => {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 uppercase font-medium"
               >
-               {navLinks}
+                {navLinks}
               </ul>
             </div>
             <Link to="/">
@@ -81,11 +94,26 @@ const Navbar = () => {
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 uppercase font-medium">
-             {navLinks}
+              {navLinks}
             </ul>
           </div>
           <div className="navbar-end">
-            {/* <a className="btn">Button</a> */}
+            {user ? (
+                <div className="relative">
+                 <img onClick={()=>setShow(!show)} src={user?.photoURL} alt="profile_photo" className="w-10 rounded-full" />
+                <div className={`absolute bg-blue-300 py-5 w-40 rounded right-0 ${show ? "top-12" : "-top-64"} duration-1000`}>
+                    <div className="flex flex-col justify-center items-center gap-1">
+                        <img src={user?.photoURL} alt="profile_photo" className="w-14 rounded-full"  />
+                        <div className=" font-medium uppercase">{user?.displayName}</div>
+                    <button onClick={handleLogout} className="btn btn-info btn-sm">Logout</button>
+                    </div>
+                </div>
+                </div>
+            ) : (
+              <Link to="/login">
+                <button className="btn  btn-info btn-sm">Login</button>
+              </Link>
+            )}
           </div>
         </div>
       </Container>
