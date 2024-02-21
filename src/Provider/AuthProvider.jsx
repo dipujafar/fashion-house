@@ -29,7 +29,7 @@ const AuthProvider = ({children}) => {
             }
             else{
                 setUser(null);
-                setLoading(true);
+                setLoading(false);
             }
         });
         return ()=>{

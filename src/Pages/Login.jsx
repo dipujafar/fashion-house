@@ -1,17 +1,18 @@
 import { toast } from "react-toastify";
 import useAuth from "../Hook/useAuth";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 const Login = () => {
     const {googleLogin} = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleLogin = ()=>{
         googleLogin()
         .then(()=>{
             toast.success("Successfully Login");
-            navigate('/')
+            navigate(location?.state ? location?.state : '/' )
         })
         .catch((error)=>{
             toast.error(error.message)
