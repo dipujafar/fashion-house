@@ -2,49 +2,53 @@ import axios from "axios";
 import Container from "../Components/Shared/Container";
 import Marquee from "react-fast-marquee";
 import { toast } from "react-toastify";
+import { useLoaderData } from "react-router-dom";
 
-const AddProduct =  () => {
-  const handleAddProduct = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const image = form.image.value;
-    const name = form.name.value;
-    const brandName = form.brandName.value;
-    const type = form.type.value;
-    const price = form.price.value;
-    const rating = form.rating.value;
-    const material = form.material.value;
-    const color = form.color.value;
-    const product = {
-     image,
-      name,
-      type,
-      price,
-      rating,
-      brandName,
-      details:{
-        material,
-        color,
-        size: "M, L, XL"
-      }
-    };
+const ProductUpdate = () => {
+    const productData = useLoaderData();
+    const handleUpdateProduct = async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const image = form.image.value;
+        const name = form.name.value;
+        const brandName = form.brandName.value;
+        const type = form.type.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const material = form.material.value;
+        const color = form.color.value;
+        const product = {
+         image,
+          name,
+          type,
+          price,
+          rating,
+          brandName,
+          details:{
+            material,
+            color,
+            size: "M, L, XL"
+          }
+        };
+    
+        const res = await axios.put(`http://localhost:5000/products/${productData._id}`, product);
 
-    const res = await axios.post('http://localhost:5000/products', product);
+        console.log(res.data)
+    
+        if(res?.data?.modifiedCount > 0){
+            toast.success("Successfully Update This Products");
+        }
+    
+      };
 
-    if(res?.data?.insertedId){
-        toast.success("Successfully Add This Products");
-        form.reset();
-    }
-
-  };
-  return (
-    <div>
+    return (
+        <div>
       <div className="bg-gray-200 p-2 md:p-5 rounded-lg  min-h-screen shadow-xl shadow-gray-900">
         <Container>
             <Marquee>
-        <h1 className="text-3xl font-medium text-center mb-5">ADD A PRODUCT</h1>
+        <h1 className="text-3xl font-medium text-center mb-5">UPDATE THE PRODUCT</h1>
         </Marquee>
-        <form onSubmit={handleAddProduct} className="p-2 w-11/12 mx-auto">
+        <form onSubmit={handleUpdateProduct} className="p-2 w-11/12 mx-auto">
           {/* input image and rating name */}
           <div className="mb-4 md:flex">
             <div className="flex-1">
@@ -54,6 +58,7 @@ const AddProduct =  () => {
                 name="image"
                 id=""
                 required
+                defaultValue={productData?.image}
                 placeholder="Product Image URL"
                 className=" w-11/12 py-1 px-2 border border-black rounded  bg-transparent"
               />
@@ -65,6 +70,7 @@ const AddProduct =  () => {
                 name="rating"
                 id=""
                 required
+                defaultValue={productData?.rating}
                 placeholder="Product Rating"
                 className=" w-11/12  py-1 px-2 border border-black rounded  bg-transparent"
                 
@@ -80,6 +86,7 @@ const AddProduct =  () => {
                 name="name"
                 id=""
                 required
+                defaultValue={productData?.name}
                 placeholder="Product Name"
                 className=" w-11/12 py-1 px-2 border border-black rounded  bg-transparent"
               />
@@ -93,6 +100,7 @@ const AddProduct =  () => {
                 name="brandName"
                 id=""
                 required
+                defaultValue={productData?.brandName}
                 placeholder="Brand Name"
                 className=" w-11/12  py-1 px-2 border border-black rounded bg-transparent"
               />
@@ -107,6 +115,7 @@ const AddProduct =  () => {
                 name="type"
                 id=""
                 required
+                defaultValue={productData?.type}
                 placeholder="Product type"
                 className=" w-11/12 py-1 px-2 border border-black rounded  bg-transparent"
               />
@@ -118,6 +127,7 @@ const AddProduct =  () => {
                 name="price"
                 id=""
                 required
+                defaultValue={productData?.price}
                 placeholder="Product Price"
                 className=" w-11/12  py-1 px-2 border border-black rounded  bg-transparent"
               />
@@ -132,6 +142,7 @@ const AddProduct =  () => {
                 name="material"
                 id=""
                 required
+                defaultValue={productData?.details?.material}
                 placeholder="Product Material"
                 className=" w-11/12 py-1 px-2 border border-black rounded  bg-transparent"
               />
@@ -143,6 +154,7 @@ const AddProduct =  () => {
                 name="color"
                 id=""
                 required
+                defaultValue={productData?.details?.color}
                 placeholder="Product Color"
                 className=" w-11/12  py-1 px-2 border border-black rounded  bg-transparent"
                 
@@ -152,14 +164,14 @@ const AddProduct =  () => {
 
           <input
             type="submit"
-            value="Add Product"
+            value="Update Product"
             className="mt-5 btn btn-outline w-full"
           />
         </form>
         </Container>
       </div>
     </div>
-  );
+    );
 };
 
-export default AddProduct;
+export default ProductUpdate;

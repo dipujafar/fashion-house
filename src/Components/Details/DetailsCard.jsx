@@ -4,9 +4,10 @@ import '@smastrom/react-rating/style.css'
 import Swal from 'sweetalert2';
 import useAuth from '../../Hook/useAuth';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const DetailsCard = ({product}) => {
-    const {image, name, brandName, type, rating, details } = product || {};
+    const {_id, image, name, brandName, type, rating, details } = product || {};
     const {user} = useAuth();
     console.log(user) 
 
@@ -57,7 +58,9 @@ const DetailsCard = ({product}) => {
           <Rating style={{ maxWidth: 250 }}  value={parseInt(rating)}></Rating>
           <div className="card-actions justify-end">
             <div className='flex gap-3 flex-wrap'>
+              <Link to={`/update/${_id}`}>
                 <button className='btn btn-outline btn-info'>Update</button>
+                </Link> 
             <button onClick={handleAddCart} className="btn btn-primary ">Add to Cart</button>
             </div>
           </div>
