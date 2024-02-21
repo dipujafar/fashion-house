@@ -30,6 +30,16 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
+          to="/shop"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "text-blue-400" : ""
+          }
+        >
+          Shop
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
           to="/addProduct"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "text-blue-400" : ""
@@ -48,16 +58,7 @@ const Navbar = () => {
           My Cart
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/shop"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-blue-400" : ""
-          }
-        >
-          Shop
-        </NavLink>
-      </li>
+    
     </>
   );
   return (
@@ -111,7 +112,7 @@ const Navbar = () => {
             {user ? (
                 <div className="relative">
                  <img onClick={()=>setShow(!show)} src={user?.photoURL} alt="profile_photo" className="w-10 rounded-full" />
-                <div className={`bg-blue-300 py-5 w-40 rounded right-0 ${show ? "right-5" : "hidden"} duration-1000`}>
+                <div className={`bg-blue-300 py-5 w-40 rounded right-0 ${show ? "" : "hidden"} duration-1000`}>
                     <div className="flex flex-col justify-center items-center gap-1">
                         <img src={user?.photoURL} alt="profile_photo" className="w-14 rounded-full"  />
                         <div className=" font-medium uppercase">{user?.displayName}</div>
