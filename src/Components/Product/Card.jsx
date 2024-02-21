@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Card = ({product}) => {
+    const {pathname} = useLocation();
     return (
         <div className="group card card-compact bg-base-100 shadow-xl">
         <figure><img src={product?.image} alt="product_image" className="w-full max-h-72 group-hover:scale-125 duration-1000" /></figure>
@@ -13,9 +14,12 @@ const Card = ({product}) => {
           <div className="card-actions justify-end">
             <div className='flex gap-5'>
                 <Rating style={{ maxWidth: 100 }}  value={parseInt(product?.rating)}></Rating>
-                <Link to={`/details/${product?._id}`}>
-                <button className="btn btn-sm btn-info btn-outline">Details</button>
-                </Link>
+                {
+               pathname === "/myCart"? "" :  <Link to={`/details/${product?._id}`}>
+               <button className="btn btn-sm btn-info btn-outline">Details</button>
+               </Link>
+                }
+               
             </div>
           </div>
         </div>

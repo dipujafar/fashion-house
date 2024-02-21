@@ -9,6 +9,7 @@ import Details from "../Pages/Details";
 import PrivateRoute from "./PrivateRoute";
 import AddProduct from "../Pages/AddProduct";
 import ProductUpdate from "../Pages/ProductUpdate";
+import MyCart from "../Pages/MyCart";
 
 
 
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
         {
           path: 'details/:id',
           element: <PrivateRoute> <Details></Details> </PrivateRoute>,
-          loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
+          loader: ({params})=> fetch(`https://fashion-house-server.vercel.app/products/${params.id}`)
         },
         {
           path: 'addProduct',
@@ -38,7 +39,11 @@ const router = createBrowserRouter([
         {
           path: 'update/:id',
           element: <PrivateRoute><ProductUpdate></ProductUpdate></PrivateRoute>,
-          loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
+          loader: ({params})=> fetch(`https://fashion-house-server.vercel.app/products/${params.id}`)
+        },
+        {
+          path: 'myCart',
+          element: <PrivateRoute><MyCart></MyCart></PrivateRoute>
         }
       ]
     },

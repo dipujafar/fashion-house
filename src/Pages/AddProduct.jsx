@@ -29,7 +29,7 @@ const AddProduct =  () => {
       }
     };
 
-    const res = await axios.post('http://localhost:5000/products', product);
+    const res = await axios.post('https://fashion-house-server.vercel.app/products', product);
 
     if(res?.data?.insertedId){
         toast.success("Successfully Add This Products");

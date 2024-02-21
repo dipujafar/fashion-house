@@ -7,9 +7,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const DetailsCard = ({product}) => {
-    const {_id, image, name, brandName, type, rating, details } = product || {};
-    const {user} = useAuth();
-    console.log(user) 
+    const {_id, image, name, price, brandName, type, rating, details } = product || {};
+    const {user} = useAuth(); 
 
     const handleAddCart = ()=>{
         Swal.fire({
@@ -25,13 +24,14 @@ const DetailsCard = ({product}) => {
                 const productData = {
                     image,
                     name,
-                    brandName, 
+                    brandName,
+                    price, 
                     type, 
                     rating, 
                     details,
                     email: user?.email
                 }
-                const res = await axios.post('http://localhost:5000/cart', productData);
+                const res = await axios.post('https://fashion-house-server.vercel.app/cart', productData);
                 if(res?.data?.insertedId){
                     Swal.fire({
                             title: "Added Your Cart!",
@@ -45,7 +45,7 @@ const DetailsCard = ({product}) => {
     return (
         <div className="group card card-side bg-base-100 shadow-xl flex flex-col md:flex-row">
         <figure className="md:w-1/2 relative"><img src={image} alt="Product_image" className=" w-full md:max-h-[calc(100vh-80px)]  object-cover group-hover:scale-110 duration-1000"/>
-        <p className="absolute text-xl  bg-blue-400 w-24 h-8 rounded text-center top-0 left-0">$ {product?.price}</p>
+        <p className="absolute text-xl  bg-blue-400 w-24 h-8 rounded text-center top-0 left-0">$ {price}</p>
         </figure>
         <div className="card-body md:w-1/2">
           <h2 className="card-title">{name}</h2>
