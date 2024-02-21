@@ -8,6 +8,7 @@ import img1 from '../../assets/image/img1.jpg'
 import img2 from '../../assets/image/img2.png'
 import img3 from '../../assets/image/img3.jpg'
 import img4 from '../../assets/image/img4.jpg'
+import { Link } from 'react-router-dom';
 
 
 const Banner = () => {
@@ -18,6 +19,7 @@ const Banner = () => {
         },
       };
     return (
+      <Link to='/shop'>
         <div>
             <Swiper
         pagination={pagination}
@@ -34,6 +36,7 @@ const Banner = () => {
         <SwiperSlide><img src={img4} alt=""  className='w-full max-h-[500px] '/></SwiperSlide>
       </Swiper>
         </div>
+        </Link>
     );
 };
 

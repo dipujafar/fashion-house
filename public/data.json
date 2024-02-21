@@ -1,0 +1,133 @@
+[
+    {
+      "image": "https://i.ibb.co/GFn4f9X/t-shirt.png",
+      "name": "Cotton Crewneck T-Shirt",
+      "type": "Casual",
+      "price": 19.99,
+      "rating": 3.3,
+      "brandName": "ComfortWear",
+      "details": {
+        "material": "100% Cotton",
+        "color": "White",
+        "size": "M, L, XL"
+      }
+    },
+    {
+      "image": "https://i.ibb.co/r0pfZGK/jeans1.jpg",
+      "name": "Classic Denim Jeans",
+      "type": "Bottoms",
+      "price": 39.99,
+      "rating": 3.5,
+      "brandName": "DenimDelight",
+      "details": {
+        "material": "Denim",
+        "color": "Blue",
+        "size": "30, 32, 34"
+      }
+    },
+    {
+      "image": "https://i.ibb.co/0qJ0Z2H/shoe1.jpg",
+      "name": "Athletic Sneakers",
+      "type": "Footwear",
+      "price": 59.99,
+      "rating": 4.7,
+      "brandName": "SportFit",
+      "details": {
+        "material": "Mesh Upper, Rubber Sole",
+        "color": "Black/Red",
+        "size": "US 7-12"
+      }
+    },
+    {
+      "image": "https://i.ibb.co/Kyhdfsq/shirt1.jpg",
+      "name": "Slim-Fit Dress Shirt",
+      "type": "Formal",
+      "price": 29.99,
+      "rating": 4.2,
+      "brandName": "EleganceWear",
+      "details": {
+        "material": "Polyester-Cotton Blend",
+        "color": "Light Blue",
+        "size": "S, M, L"
+      }
+    },
+    {
+      "image": "https://i.ibb.co/7W9hVD7/winter-Ware1.jpg",
+      "name": "Cozy Hooded Sweatshirt",
+      "type": "Winterwear",
+      "price": 49.99,
+      "rating": 4.6,
+      "brandName": "WarmThreads",
+      "details": {
+        "material": "Fleece",
+        "color": "Gray",
+        "size": "XS, S, M"
+      }
+    },
+    {
+      "image": "https://i.ibb.co/vZRk3tY/comfortable-clothes.jpg",
+      "name": "Cotton Crewneck T-Shirt",
+      "type": "Casual",
+      "price": 24.99,
+      "rating": 4.4,
+      "brandName": "ComfortWear",
+      "details": {
+        "material": "Polyester",
+        "color": "Black",
+        "size": "S, M, L"
+      }
+    },
+    {
+      "image": "https://i.ibb.co/3rsTksm/classic-footwear-leather-leather-shoes.jpg",
+      "name": "Leather Formal Shoes",
+      "type": "Footwear",
+      "price": 79.99,
+      "rating": 3.8,
+      "brandName": "Classique",
+      "details": {
+        "material": "Genuine Leather",
+        "color": "Brown",
+        "size": "US 8-11"
+      }
+    },
+    {
+      "image": "https://i.ibb.co/m4hcbSn/images.jpg",
+      "name": "Flowy Summer Dress",
+      "type": "Dresses",
+      "price": 34.99,
+      "rating": 4.5,
+      "brandName": "SunStyle",
+      "details": {
+        "material": "Chiffon",
+        "color": "Floral Print",
+        "size": "S, M, L"
+      }
+    },
+    {
+      "image": "https://i.ibb.co/0hGDXHW/images-1.jpg",
+      "name": "Versatile Casual Jacket",
+      "type": "Outerwear",
+      "price": 69.99,
+      "rating": 5,
+      "brandName": "UrbanChic",
+      "details": {
+        "material": "Cotton Blend",
+        "color": "Charcoal Gray",
+        "size": "M, L, XL"
+      }
+    },
+    {
+      "image": "https://i.ibb.co/nnLXRdp/download.jpg",
+      "name": "Stretchy Yoga Pants",
+      "type": "Activewear",
+      "price": 29.99,
+      "rating": 4.6,
+      "brandName": "FlexMoves",
+      "details": {
+        "material": "Spandex Blend",
+        "color": "Black",
+        "size": "XS, S, M"
+      }
+    }
+  ]
+  
