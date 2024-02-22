@@ -3,6 +3,7 @@ import Container from "../Components/Shared/Container";
 import Marquee from "react-fast-marquee";
 import { toast } from "react-toastify";
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const ProductUpdate = () => {
     const productData = useLoaderData();
@@ -31,7 +32,7 @@ const ProductUpdate = () => {
           }
         };
     
-        const res = await axios.put(`https://fashion-house-server.vercel.app/products/${productData._id}`, product);
+        const res = await axios.put(`http://localhost:5000/products/${productData._id}`, product);
 
     
         if(res?.data?.modifiedCount > 0){
@@ -42,6 +43,9 @@ const ProductUpdate = () => {
 
     return (
         <div>
+          <Helmet>
+            <title>JUF | PRODUCT UPDATE</title>
+          </Helmet>
       <div className="bg-gray-200 p-2 md:p-5 rounded-lg  min-h-screen shadow-xl shadow-gray-900">
         <Container>
             <Marquee>

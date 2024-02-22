@@ -2,6 +2,7 @@ import axios from "axios";
 import Container from "../Components/Shared/Container";
 import Marquee from "react-fast-marquee";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const AddProduct =  () => {
   const handleAddProduct = async (e) => {
@@ -29,7 +30,7 @@ const AddProduct =  () => {
       }
     };
 
-    const res = await axios.post('https://fashion-house-server.vercel.app/products', product);
+    const res = await axios.post('http://localhost:5000/products', product);
 
     if(res?.data?.insertedId){
         toast.success("Successfully Add This Products");
@@ -39,6 +40,9 @@ const AddProduct =  () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>JUF | ADD PRODUCT</title>
+      </Helmet>
       <div className="bg-gray-200 p-2 md:p-5 rounded-lg  min-h-screen shadow-xl shadow-gray-900">
         <Container>
             <Marquee>

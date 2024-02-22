@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logoImg from "../../assets/logo/Fashion-House-logo.png";
 import Container from "./Container";
 import useAuth from "../../Hook/useAuth";
@@ -8,6 +8,8 @@ import { useState } from "react";
 const Navbar = () => {
   const { user,  logOut} = useAuth();
   const [show, setShow] = useState(false);
+  const {pathname}= useLocation();
+  console.log(location)
 
   const handleLogout = () =>{
     logOut()
@@ -62,7 +64,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="bg-base-300">
+    <div className={`bg-base-300 ${pathname == '/' ? 'bg-blue-200 fixed z-10 w-full bg-opacity-30' : ''}`}>
       <Container>
         <div className="navbar rounded">
           <div className="navbar-start">
@@ -96,7 +98,7 @@ const Navbar = () => {
             </div>
             <Link to="/">
               <div className="flex justify-center items-center">
-                <img src={logoImg} alt="" className="w-16" />
+                <img src={logoImg} alt="logo_image" className="w-10" />
                 <p className="uppercase text-2xl font-medium text-blue-400">
                   JUF
                 </p>
@@ -112,7 +114,7 @@ const Navbar = () => {
             {user ? (
                 <div className="relative">
                  <img onClick={()=>setShow(!show)} src={user?.photoURL} alt="profile_photo" className="w-10 rounded-full" />
-                <div className={`bg-blue-300 py-5 w-40 rounded right-0 ${show ? "" : "hidden"} duration-1000`}>
+                <div className={`absolute z-10 bg-blue-300 py-5 w-40 rounded right-0 ${show ? "top-12 right-0" : "-top-60"} duration-1000`}>
                     <div className="flex flex-col justify-center items-center gap-1">
                         <img src={user?.photoURL} alt="profile_photo" className="w-14 rounded-full"  />
                         <div className=" font-medium uppercase">{user?.displayName}</div>

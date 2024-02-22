@@ -12,7 +12,7 @@ const MyCart = () => {
     const {data: products, } = useQuery({
         queryKey: ["cart", user.email],
         queryFn: async()=>{
-            const res = await axios.get(`https://fashion-house-server.vercel.app/cart/${user?.email}`);
+            const res = await axios.get(`http://localhost:5000/cart/${user?.email}`);
             return res.data
         }
     });

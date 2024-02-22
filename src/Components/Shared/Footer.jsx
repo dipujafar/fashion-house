@@ -4,7 +4,7 @@ import Container from "./Container";
 const Footer = () => {
   return (
    
-    <footer className="md:p-10 bg-base-300 rounded mt-5">
+    <footer className="md:p-10 bg-base-300 rounded ">
          <Container>
             <div className="flex flex-col md:flex-row justify-center items-center md:justify-between">
             <img src={logo} alt="" className="w-48 md:w-60"/>

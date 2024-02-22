@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         {
           path: 'details/:id',
           element: <PrivateRoute> <Details></Details> </PrivateRoute>,
-          loader: ({params})=> fetch(`https://fashion-house-server.vercel.app/products/${params.id}`)
+          loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
         },
         {
           path: 'addProduct',
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         {
           path: 'update/:id',
           element: <PrivateRoute><ProductUpdate></ProductUpdate></PrivateRoute>,
-          loader: ({params})=> fetch(`https://fashion-house-server.vercel.app/products/${params.id}`)
+          loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
         },
         {
           path: 'myCart',

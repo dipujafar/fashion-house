@@ -31,7 +31,7 @@ const DetailsCard = ({product}) => {
                     details,
                     email: user?.email
                 }
-                const res = await axios.post('https://fashion-house-server.vercel.app/cart', productData);
+                const res = await axios.post('http://localhost:5000/cart', productData);
                 if(res?.data?.insertedId){
                     Swal.fire({
                             title: "Added Your Cart!",

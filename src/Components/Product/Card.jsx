@@ -8,6 +8,15 @@ const Card = ({product}) => {
     return (
         <div className="group card card-compact bg-base-100 shadow-xl">
         <figure><img src={product?.image} alt="product_image" className="w-full max-h-72 group-hover:scale-125 duration-1000" /></figure>
+        {
+          pathname == '/'
+          ?
+          <div className='absolute bottom-0'>
+            <Link to='/shop'>
+            <button className='btn btn-info btn-sm'>Shop NOW</button>
+            </Link>
+          </div>
+          :
         <div className="card-body">
           <h2 className="card-title">{product?.name}</h2>
           <p>$ {product?.price}</p>
@@ -23,6 +32,7 @@ const Card = ({product}) => {
             </div>
           </div>
         </div>
+}
       </div>
     );
 };
