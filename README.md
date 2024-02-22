@@ -1,8 +1,7 @@
-# React + Vite
+ - There implements google login System.
+ - User Will add and Update Products.
+ - There Implement Private Route System. When User not logged in they has no access some routes.
+ - When Login Automatic navigate user.
+ - There has My cart Page. There user see his/her cart product.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ [Live Link](https://fashion-house-3de04.firebaseapp.com/)
