@@ -1,13 +1,11 @@
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
-import logo from '../../assets/logo/Fashion-House-logo.png'
 import Container from "./Container";
 const Footer = () => {
   return (
    
     <footer className="md:p-10 bg-base-300 rounded ">
          <Container>
-            <div className="flex flex-col md:flex-row justify-center items-center md:justify-between">
-            <img src={logo} alt="" className="w-48 md:w-60"/>
+           
             <div>
       <div className="flex justify-center flex-wrap">
         <div className="md:mr-20 text-center">
@@ -41,7 +39,7 @@ const Footer = () => {
         <h3>Copyright © 2024 - All right reserved by JU Fashion</h3>
       </div>
       </div>
-      </div>
+     
       </Container>
     </footer>
     

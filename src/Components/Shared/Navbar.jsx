@@ -99,7 +99,7 @@ const Navbar = () => {
             <Link to="/">
               <div className="flex justify-center items-center">
                 <img src={logoImg} alt="logo_image" className="w-10" />
-                <p className="uppercase text-2xl font-medium text-blue-400">
+                <p className="uppercase text-2xl font-medium text-blue-600">
                   JUF
                 </p>
               </div>

@@ -32,7 +32,7 @@ const ProductUpdate = () => {
           }
         };
     
-        const res = await axios.put(`http://localhost:5000/products/${productData._id}`, product);
+        const res = await axios.put(`https://fashion-house-server.vercel.app/products/${productData._id}`, product);
 
     
         if(res?.data?.modifiedCount > 0){

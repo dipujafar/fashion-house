@@ -12,7 +12,7 @@ const Products = () => {
     const {data: products, isLoading} = useQuery({
         queryKey: ['products'],
         queryFn: async () =>{
-                const res = await axios.get('http://localhost:5000/products')
+                const res = await axios.get('https://fashion-house-server.vercel.app/products')
                 return res.data;
         }
     });
@@ -29,7 +29,7 @@ const Products = () => {
             </Helmet>
             <Marquee>
                 { pathname == '/'?
-                  <div className=" mt-5 text-3xl text-blue-800 mb-2 uppercase">
+                  <div className=" mt-5 text-3xl font-medium text-blue-800 mb-2 uppercase">
                   Shop Our Collection
               </div>
                  :
